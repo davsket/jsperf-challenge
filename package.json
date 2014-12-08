@@ -11,6 +11,7 @@
   "dependencies": {
     "benchmark": "^1.0.0",
     "dot": "^1.0.3",
+    "express": "^4.10.4",
     "jquery": "^2.1.1",
     "lodash": "^2.4.1",
     "q": "^1.1.2"
