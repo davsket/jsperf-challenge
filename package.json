@@ -2,9 +2,12 @@
   "name": "jsperf-challenge-col",
   "version": "0.0.0",
   "description": "website for easy comparison of porformance beetween gists",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "0.10.x"
   },
   "author": "davsket",
   "license": "MIT",

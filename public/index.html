@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Performance Challenge</title>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,100' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<h1>JavaScript Performance Challenge</h1>
+	<button id="summon" class="summon">summon!</button>
+	<div class="params">
+		<label for="val">Value</label>
+		<input type="text" id="val" autofocus value=''>
+		<label for="result">Result</label>
+		<input type="text" id="result" value=''>
+		<p class="params__note">Nota: los valores tienen que ser ingresados como si furean en la consola, es decir, un string debe ingresarse: "value", si es un arreglo: [1,2], un objeto: {a: 2}, un número: 32. </p>
+	</div>
+	<p class="challengers-title">Challengers</p>
+	<div id="scripts" class="scripts"><input type="url" placeholder="gist url" validate value=""><div class="vs">vs</div><input type="url" placeholder="gist url" validate value=""></div>
+	<div class="actions">
+		<button id="match">Challenge!</button><br>
+		<a href="#" class="add-script" id="add-script">+ add challenger</a>
+		<div class="spinner">
+			<div class="rect1"></div>
+			<div class="rect2"></div>
+			<div class="rect3"></div>
+			<div class="rect4"></div>
+			<div class="rect5"></div>
+		</div>
+	</div>
+	<div id="results" class="results">
+	</div>
+	<template id="result-template">
+		<div class="result-gist">
+			<h3>{{=it.user}}</h3>
+			<h4>{{=it.name}}</h4>
+			<div class="result-gist__time"></div>
+			<pre><code class="language-javascript">{{=it.contentSafe}}</code></pre>
+		</div>
+	</template>
+	<script src="node_modules/benchmark/benchmark.js"></script>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/lodash/dist/lodash.min.js"></script>
+	<script src="node_modules/dot/doT.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+	<script src="js/challenge.js"></script>
+</body>
+</html>
