@@ -38,7 +38,11 @@
 		try{
 			return JSON.parse( val )
 		}catch( e ){
-			return isNaN( val ) ? val : +val
+			if( isNaN( val ) ){
+				return val
+			}else{
+				return +val
+			}
 		}
 	}
 	
@@ -97,7 +101,7 @@
 				var gist = _.toArray( gistData.files )[0]
 
 				def.resolve({
-					user: gistData.owner.login,
+					user: gistData.owner ? gistData.owner.login : 'anonimo',
 					content: gist.content,
 					name: gist.filename,
 					id: gistData.id
@@ -109,10 +113,12 @@
 	}
 
 	function exposeScript( gist ){
-		var main
+		var main, 
+			console = {log: function(){}}
 
 		eval('main = (function(){ ' +
-				gist.content + '; return main }())')
+				gist.content +
+				'; return main }())')
 
 		exposedScripts.push({
 			gist: gist,
@@ -122,10 +128,7 @@
 				}catch(e){
 					if( ! failureNotifications[gist.id] ){
 						failureNotifications[gist.id] = true
-						console.log('Script exception!', gist)
-					}
-					for(var i=0, t; i<9999999; i++){
-						t *= i*i
+						window.console.error('Script exception!', e)
 					}
 				}
 			},
@@ -135,35 +138,42 @@
 
 	function matchScripts(){
 		var suite = new Benchmark.Suite,
-			$resultElems = $('.result-gist .result-gist__time')
+			$resultElems = $('.result-gist .result-gist__time'),
+			name
 
 		for( script of exposedScripts ){
-			console.log( script.index + '. ' + script.gist.user + ': ' + 
-				script.gist.name, result, script.main( val ), event.target.id )
-			if( result === script.main( val ) ){
+			if( _.isEqual(result, script.main( val )) ){
 				$($resultElems[script.index])
 					.parent()
 					.addClass('passed')
+
+				// console.log( val, '=>', script.main( val ) )
+				name = script.index
+				suite.add(name, (function(main, val){ return function(){ main(val) } }( script.main, val )) )
 			}else{
 				$($resultElems[script.index])
 					.parent()
 					.addClass('did-not-passed')
 			}
-			// console.log( val, '=>', script.main( val ) )
-			suite.add( script.index + '. ' + script.gist.user + ': ' + 
-				script.gist.name, (function(main, val){ return function(){ main(val) } }( script.main, val )) )
 		}
 
 		suite.on('cycle', function(event) {
-				console.log(String(event.target))
-				$resultElems[event.target.id - 1].innerHTML = String(event.target)
+				var data = event.target,
+					hz = data.hz,
+					resume = 'Resultado: ' +
+						Benchmark.formatNumber(hz.toFixed(hz < 100 ? 2 : 0)) +
+						' ops/sec +/-' + data.stats.rme.toFixed(2) + '% (' +
+						data.stats.sample.length + ' ejecuciones)'
+
+				$resultElems[ event.target.name ].innerHTML = resume
+				// debugger
 			})
 			.on('complete', function() {
 				$spinner.removeClass('visible')
 				playSound('end')
 				this.filter('fastest')
 					.forEach( function( fast ){
-						$resultElems[fast.id - 1]
+						$resultElems[fast.name]
 							.parentNode
 							.classList.add('faster')
 					})

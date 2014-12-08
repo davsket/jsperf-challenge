@@ -129,6 +129,17 @@ button:active {
 }
 
 /* line 104, ../sass/main.sass */
+.params__note {
+  width: 470px;
+  margin: 1.1em auto 0.2em;
+  line-height: 1.2;
+  font-size: 0.9em;
+  font-weight: 200;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* line 112, ../sass/main.sass */
 .challengers-title {
   font-weight: 600;
   font-size: 1em;
@@ -141,12 +152,12 @@ button:active {
   letter-spacing: 1px;
 }
 
-/* line 115, ../sass/main.sass */
+/* line 123, ../sass/main.sass */
 .results {
   display: flex;
 }
 
-/* line 118, ../sass/main.sass */
+/* line 126, ../sass/main.sass */
 .result-gist {
   flex: 1;
   margin-left: 1em;
@@ -156,7 +167,7 @@ button:active {
   background: rgba(0, 0, 0, 0.1);
   margin-top: 2em;
 }
-/* line 127, ../sass/main.sass */
+/* line 135, ../sass/main.sass */
 .result-gist h3 {
   text-transform: uppercase;
   margin: 0;
@@ -165,7 +176,7 @@ button:active {
   font-size: 1.1em;
   position: relative;
 }
-/* line 135, ../sass/main.sass */
+/* line 143, ../sass/main.sass */
 .result-gist h3:after {
   font-weight: 400;
   right: 0.7em;
@@ -173,54 +184,54 @@ button:active {
   position: absolute;
   top: 0.7em;
 }
-/* line 142, ../sass/main.sass */
+/* line 150, ../sass/main.sass */
 .result-gist h4 {
   margin: 0.4em 0 1em;
   font-weight: 100;
   font-size: 1.1em;
 }
 
-/* line 147, ../sass/main.sass */
+/* line 155, ../sass/main.sass */
 .result-gist__time {
   font-weight: 400;
   font-size: 0.9em;
   text-align: left;
 }
 
-/* line 152, ../sass/main.sass */
+/* line 160, ../sass/main.sass */
 .result-gist:first-child {
   margin-left: 0;
 }
 
-/* line 155, ../sass/main.sass */
+/* line 163, ../sass/main.sass */
 .token.lf:before {
   content: " ";
 }
 
-/* line 158, ../sass/main.sass */
+/* line 166, ../sass/main.sass */
 .faster {
   background: #40BFBF;
 }
-/* line 161, ../sass/main.sass */
+/* line 169, ../sass/main.sass */
 .faster h3:after {
   content: "[ winner ]";
 }
 
-/* line 165, ../sass/main.sass */
+/* line 173, ../sass/main.sass */
 .passed h3:after {
   content: "[ correct ]";
 }
 
-/* line 168, ../sass/main.sass */
+/* line 176, ../sass/main.sass */
 .did-not-passed {
   background: #E43030;
 }
-/* line 171, ../sass/main.sass */
+/* line 179, ../sass/main.sass */
 .did-not-passed h3:after {
   content: "[ wrong! ]";
 }
 
-/* line 175, ../sass/main.sass */
+/* line 183, ../sass/main.sass */
 .spinner {
   margin: 2em auto;
   width: 50px;
@@ -231,7 +242,7 @@ button:active {
   transition: all 0.5s;
   height: 0;
 }
-/* line 185, ../sass/main.sass */
+/* line 193, ../sass/main.sass */
 .spinner.visible {
   height: 50px;
   opacity: 1;
@@ -239,7 +250,7 @@ button:active {
   transition: all 0.5s;
 }
 
-/* line 193, ../sass/main.sass */
+/* line 201, ../sass/main.sass */
 .spinner > div {
   background-color: rgba(255, 255, 255, 0.7);
   height: 100%;
@@ -249,25 +260,25 @@ button:active {
   animation: stretchdelay 1.2s infinite ease-in-out;
 }
 
-/* line 203, ../sass/main.sass */
+/* line 211, ../sass/main.sass */
 .spinner .rect2 {
   -webkit-animation-delay: -1.1s;
   animation-delay: -1.1s;
 }
 
-/* line 208, ../sass/main.sass */
+/* line 216, ../sass/main.sass */
 .spinner .rect3 {
   -webkit-animation-delay: -1s;
   animation-delay: -1s;
 }
 
-/* line 213, ../sass/main.sass */
+/* line 221, ../sass/main.sass */
 .spinner .rect4 {
   -webkit-animation-delay: -0.9s;
   animation-delay: -0.9s;
 }
 
-/* line 218, ../sass/main.sass */
+/* line 226, ../sass/main.sass */
 .spinner .rect5 {
   -webkit-animation-delay: -0.8s;
   animation-delay: -0.8s;

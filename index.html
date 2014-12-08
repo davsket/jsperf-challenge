@@ -12,12 +12,13 @@
 	<button id="summon" class="summon">summon!</button>
 	<div class="params">
 		<label for="val">Value</label>
-		<input type="text" id="val" autofocus value=8>
+		<input type="text" id="val" autofocus value=''>
 		<label for="result">Result</label>
-		<input type="text" id="result" value=34>
+		<input type="text" id="result" value=''>
+		<p class="params__note">Nota: los valores tienen que ser ingresados como si furean en la consola, es decir, un string debe ingresarse: "value", si es un arreglo: [1,2], un objeto: {a: 2}, un número: 32. </p>
 	</div>
 	<p class="challengers-title">Challengers</p>
-	<div id="scripts" class="scripts"><input type="url" placeholder="gist url" validate value="https://gist.github.com/davsket/1dded2766e752bd3cfb7"><div class="vs">vs</div><input type="url" placeholder="gist url" validate value="https://gist.github.com/davsket/4bbf0f0b0b65fc25ff37"></div>
+	<div id="scripts" class="scripts"><input type="url" placeholder="gist url" validate value=""><div class="vs">vs</div><input type="url" placeholder="gist url" validate value=""></div>
 	<div class="actions">
 		<button id="match">Challenge!</button><br>
 		<a href="#" class="add-script" id="add-script">+ add challenger</a>
